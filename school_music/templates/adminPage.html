@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="text-align: center;
+margin: 0;">
+  <div style="display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 3px solid;
+  margin: 0;
+  width: 100%;">
+    <a href="{% url 'data' %}"><button type="button" style="font-size: 30px;
+                               padding: 15px;">Данные учеников</button></a>
+    <a href="{% url 'add' %}"><button type="button" style="font-size: 30px;
+                              padding: 15px;">Добавить ученика</button></a>
+  </div>
+  <h1>Админ страница</h1>
+  <div style="display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 20px;">
+    {% for student in students %}
+    <div style="margin: auto;
+    border: 3px solid;
+    font-size: 18px;
+    width: 500px;">
+      <h2>Фамилия</h2>
+      <p>{{ student.surname }}</p>
+      <h2>Имя</h2>
+      <p>{{ student.name }}</p>
+      <h2>Возраст</h2>
+      <p>{{ student.age }}</p>
+      <h2>Направление</h2>
+      <p>{{ student.directions }}</p>
+      <h2>Класс</h2>
+      <p>{{ student.class_number }}</p>
+      <h2>Инструмент</h2>
+      <p>{{ student.tool }}</p>
+      <a href="{% url 'update' student.pk %}"><button type="button" style="font-size: 25px;
+                                               margin-bottom: 20px;">Редактировать</button></a>
+    </div>
+    {% endfor %}
+  </div>
+</body>
+</html>

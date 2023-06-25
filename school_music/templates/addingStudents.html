@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="text-align: center;
+margin: 0;">
+  <div style="display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 3px solid;
+  margin: 0;
+  width: 100%;">
+    <a href="{% url 'admin_page' %}"><button type="button" style="font-size: 30px;
+                                     padding: 15px;">Админ старница</button></a>
+    <a href="{% url 'data' %}"><button type="button" style="font-size: 30px;
+                             padding: 15px;">Данные учеников</button></a>
+  </div>
+  <h1>Добавить ученика</h1>
+  <div style="margin: auto;
+  padding: 10px;
+  border: 3px solid;
+  font-size: 30px;
+  width: 500px;">
+    <form action="" method="post">
+      {% csrf_token %}
+      <label>Фамилия</label><br>
+      <input type="text" name="surname" style="font-size: 25px;"><br><br>
+      <label>Имя</label><br>
+      <input type="text" name="name" style="font-size: 25px;"><br><br>
+      <label>Возраст</label><br>
+      <input type="number" name="age" style="font-size: 25px;"><br><br>
+      <label>Направление</label><br>
+      <select name="directions" style="font-size: 25px;">
+        <option value="Фортепиано">Фортепиано</option>
+        <option value="Струнные инструменты">Струнные инструменты</option>
+        <option value="Духовые и ударные инструменты">Духовые и ударные инструменты</option>
+      </select><br><br>
+      <label>Класс</label><br>
+      <input type="number" name="class_number" style="font-size: 25px;"><br><br>
+      <label>Инструмент</label><br>
+      <input type="text" name="tool" style="font-size: 25px;"><br><br>
+      <button type="submit" style="font-size: 30px;
+      margin-bottom: 10px;">Сохранить</button>
+    </form>
+  </div>
+</body>
+</html>
